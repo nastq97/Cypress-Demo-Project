@@ -1,0 +1,22 @@
+{
+    "createSuccessfulPostBody":{
+        "title": "foo",
+        "body": "bar",
+        "userId": 1
+    },
+    "invalidPostData": [
+        {
+
+        },
+        {
+            "abs" : "invalid field"
+        },
+        {
+            "postId": "invalid type",
+            "id": "invalid type",
+            "name": false,
+            "email": true,
+            "body": 58869
+        }
+    ]
+}
