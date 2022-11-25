@@ -81,9 +81,7 @@ Cypress.Commands.add('DELETE', (path: string, headers?) => {
         method: Commons.httpMethods.DELETE, 
         url: path, 
         headers: headers = true ? headers : Commons.headers
+      }).then( (response) => {
+        return response;
       });
-});
-
-Cypress.Commands.add('VerifyPropertiesPresent', () => {
-
 });
