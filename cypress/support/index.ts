@@ -7,7 +7,7 @@
          GET(url): Promise<Element>
          PUT(url, body, headers): Chainable<Element>
          PATCH(url, body, headers): Chainable<Element>
-         DELETE(url): Promise<Element>
+         DELETE(url): Chainable<Element>
          VerifyPropertiesPresent(): Chainable<Element>
       }
     }
