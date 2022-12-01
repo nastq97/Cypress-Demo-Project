@@ -18,7 +18,7 @@
   },
   "scripts": {
     "cypress": "cypress open",
-    "test:dev": "npx cypress open --config-file /config/dev-config.json",
+    "open:dev": "ts-node config/devConfig.ts",
     "test:release": "npx cypress open --config-file /config/release-config.json",
     "test-headless:dev": "npx cypress run --config-file /config/dev-config.json",
     "test-headless:release": "npx cypress run --config-file /config/release-config.json",

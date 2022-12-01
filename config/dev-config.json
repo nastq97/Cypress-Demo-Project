@@ -1,8 +1,0 @@
-{
-    "extends": "../cypress.json",
-    "baseUrl": "https://jsonplaceholder.typicode.com/",
-    "ignoreTestFiles": "../../cypress/integration/examples/*.js",
-    "env": {
-      "ENVIRONMENT": "release"
-      }
-  }
