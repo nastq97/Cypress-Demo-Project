@@ -29,7 +29,7 @@ declare namespace Cypress {
     interface Chainable {
         POST: (path: string, body: object, headers?: object) => Chainable;
         GET: (path: string, headers?: object) => Chainable;
-        DELETE: (DELETE: string, headers?: object) => Chainable;
+        DELETE: (path: string, headers?: object) => Chainable;
         PUT: (path: string, body: object, headers?: object) => Chainable;
     }
 }
