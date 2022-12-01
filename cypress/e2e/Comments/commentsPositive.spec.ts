@@ -1,7 +1,7 @@
-import { CommentClass, IComment } from "../../APIHelpers/Comments/comments.controller";
-import { CommentFactory } from "../../APIHelpers/Comments/comments.factory";
-import { Comment } from "../../APIHelpers/Comments/commentsAPI";
-import { verifyIsComment } from "../../APIHelpers/common.interface";
+import { CommentClass, IComment } from "../../apiHelpers/Comments/comments.controller";
+import { CommentFactory } from "../../apiHelpers/Comments/comments.factory";
+import { Comment } from "../../apiHelpers/Comments/commentsAPI";
+import { verifyIsComment } from "../../apiHelpers/common.interface";
 import { Response } from "../../support/validations";
 
 describe('Comments Positive Tests', () => {

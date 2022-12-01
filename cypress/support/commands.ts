@@ -23,65 +23,47 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+/// <reference types="cypress" />
 
-const cypress = require("cypress");
-const { Commons } = require("./common");
+declare namespace Cypress {
+    interface Chainable {
+        POST: (path: string, body: object, headers?: object) => Chainable;
+        GET: (path: string, headers?: object) => Chainable;
+        DELETE: (DELETE: string, headers?: object) => Chainable;
+        PUT: (path: string, body: object, headers?: object) => Chainable;
+    }
+}
 
-/**
- * Sends a POST request
- * @param path: the request path after the default URL
- * @param body: the body that will be sent out with the request
- * @param headers? : optional parameter. If not passed the default headers will be used 
- */
-Cypress.Commands.add('POST', (path: string, body: object, headers?) => {
+Cypress.Commands.add('POST', (path, body, headers?) => {
     cy.request({
-        method: Commons.httpMethods.POST, 
+        method: 'POST',
+        url: path, 
+        body,
+        headers
+      });
+});
+
+Cypress.Commands.add('GET', (path, headers?) => {
+    cy.request({
+        method: 'GET',
+        url: path,
+        headers
+      });
+});
+
+Cypress.Commands.add('PUT', (path, body, headers?) => {
+    cy.request({
+        method: 'PUT',
         url: path, 
         body: body,
-        headers: headers = true ? headers : Commons.headers
+        headers
       });
 });
 
-/**
- * Sends a GET request
- * @param path: the request path after the default URL
- * @param queryParams: the query parameters that will be appended after the URL
- * @param headers? : optional parameter. If not passed the default headers will be used 
- */
-Cypress.Commands.add('GET', (path: string) => {
+Cypress.Commands.add('DELETE', (path, headers?) => {
     cy.request({
-        method: Commons.httpMethods.GET, 
-        url: path
-      });
-});
-
-/**
- * Sends a PUT request
- * @param path: the request path after the default URL
- * @param body: the body that will be sent out to modify the resource with the request
- * @param headers? : optional parameter. If not passed the default headers will be used 
- */
-Cypress.Commands.add('PUT', (path: string, body: object, headers?) => {
-    cy.request({
-        method: Commons.httpMethods.PUT, 
+        method: 'DELETE',
         url: path, 
-        body: body,
-        headers: headers = true ? headers : Commons.headers
-      });
-});
-
-/**
- * Sends a PATCH request
- * @param path: the request path after the default URL
- * @param body: the body that will be sent out to modify the resource with the request
- * @param headers? : optional parameter. If not passed the default headers will be used 
- */
-Cypress.Commands.add('DELETE', (path: string, headers?) => {
-    cy.request({
-        method: Commons.httpMethods.DELETE, 
-        url: path, 
-        headers: headers = true ? headers : Commons.headers
-      }).then( (response) => {
-        return response;
+        headers
       });
 });

@@ -1,6 +1,5 @@
-import { CommentError, ICommentError } from "../../APIHelpers/Comments/comments.controller";
-import { Comment } from "../../APIHelpers/Comments/commentsAPI";
-import { verifyIsCommentError } from "../../APIHelpers/common.interface";
+import { Comment } from "../../apiHelpers/Comments/commentsAPI";
+import { verifyIsCommentError } from "../../apiHelpers/common.interface";
 import { Response } from "../../support/validations";
 
 describe('Comments Negative Tests', () => {
